@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>Word Search Creator</title>
+
+<script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="lib/progressbar.js"></script>
+<script type="text/javascript" src="lib/colorpicker.js"></script>
+<script type="text/javascript" src="lib/eye.js"></script>
+<script type="text/javascript" src="lib/utils.js"></script>
+<script type="text/javascript" src="lib/main.js"></script>
+<script type="text/javascript" src="lib/layout.js?ver=1.0.2"></script>
+<script type="text/javascript" src="lib/default.js"></script>
+
+<link rel="stylesheet" href="lib/colorpicker.css" type="text/css" />
+<link rel="stylesheet" href="lib/main.css" type="text/css" />
+
+<script type="text/javascript">
+// Preload images
+function preload(sources) {
+	jQuery.each(sources, function(i,source) { jQuery.get(source); });
+}
+preload([
+	'img/l.gif',
+	'img/start1.png',
+	'img/start0.png',
+	'img/c.png',
+	'img/n.png',
+	'img/s.png',
+	'img/e.png',
+	'img/w.png',
+	'img/ne.png',
+	'img/se.png',
+	'img/nw.png',
+	'img/sw.png',
+	'img/h.png',
+	'img/v.png',
+	'img/down.png',
+	'img/up.png',
+	'img/c-ne.png',
+	'img/c-se.png',
+	'img/c-nw.png',
+	'img/c-sw.png',
+	'img/progress.gif',
+	'img/progressbg_green.gif',
+	'img/progressbg_orange.gif',
+	'img/progressbg_red.gif',
+	'img/progressbg_yellow.gif',
+	'img/new0.png',
+	'img/new1.png',
+	'img/printable0.png',
+	'img/printable1.png',
+	'img/open.cur'
+]);
+</script>
+
+</head><body onmouseup="ws.outOfGrid()">
+
+<center>
+<div id="content">
+
+<div id="loadscreen">
+	<br /><br /><br /><br /><img src="img/l.gif" /><br /><br />
+	&nbsp;&nbsp;&nbsp;Loading...
+</div>
+
+<div id="startscreen">
+	<table cellpadding="0" cellspacing="50" border="0"><tr>
+	<td valign="top">
+	<div class="head">Words:</div><br />
+	<textarea id="opt_words" onchange="ws.setCookie('ws_list',$('#opt_words').val(),'365')"></textarea><br />
+	<div class="small">(Separate each word with <img src="img/enter.png" />) </div>
+	</td>
+	<td valign="top">
+	<div class="head">Options:</div><br />
+	<table cellpadding="0" cellspacing="0" width="100%" id="setup"><tr>
+	<td>Width (in characters):</td> <td><input type="text" size="1" value="15" id="opt_width" onchange="ws.setCookie('ws_width',$('#opt_width').val(),'365')" /></td>
+	</tr><tr>
+	<td>Height (in characters):&nbsp;</td> <td><input type="text" size="1" value="15" id="opt_height" onchange="ws.setCookie('ws_height',$('#opt_height').val(),'365')" /></td>
+	</tr><tr>
+	<td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+	<td>Progress Bar: </td> <td><input type="checkbox" checked="checked" id="opt_bar" onchange="ws.barChange()" /></td>
+	</tr><tr>
+	<td>Timer:</td> <td><input type="checkbox" id="opt_timer" checked="checked" onchange="ws.timerChange()" /></td>
+	</tr><tr>
+	<td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+	<td>Background color:</td> <td><div id="colorSelector1"><div id="p1"></div></div></td>
+	</tr><tr>
+	<td>Letter color: </td> <td><div id="colorSelector2"><div id="p2"></div></div></td>
+	</tr><tr>
+	<td>Found Word color:</td> <td><div id="colorSelector3"><div id="p3"></div></div></td>
+	</tr></table>
+	<br /><br /><center><img src="img/start1.png" id="btn_start" onclick="ws.startGame()" /></center>
+	</td>
+	</tr></table>
+</div>
+
+<div id="wordscreen">
+	<br />
+	<div id="pbar"><span class="progressBar" id="pb1">0%</span></div>
+	<div id="timer">0:00</div>
+	<table cellpadding="0" cellspacing="50" border="0"><tr>
+	<td id="wordsearch"></td>
+	<td id="wordlist" valign="top"></td>
+	</tr></table>
+
+	<table cellpadding="0" cellspacing="5" border="0" id="buttons"><tr>
+	<td><a href="index.html"><img src="img/new1.png" border="0" id="btn_new" /></a></td>
+	<td><img src="img/printable1.png" border="0" id="btn_printable" onclick="ws.printable()" /></td>
+	</tr></table>
+</div>
+
+<div id="adscreen"><br /></div>
+
+</div>
+</center>
+
+<div id="debug"></div>
+
+
+</body>
+</html>

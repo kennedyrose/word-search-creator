@@ -1,0 +1,73 @@
+body {
+	font-family: courier, monospace;
+	font-size:16px;
+	background-image:url('../img/bg.jpg');
+	color:#333;
+}
+#startscreen {
+	display:none;
+}
+#wordscreen {
+	display:none;
+}
+#adscreen {
+	display:none;
+}
+#wordsearch {
+	cursor: url('../img/open.cur'), url('img/open.cur'), pointer;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000;
+	background-color: #ccccff;
+}
+#wordsearch td {
+	width:20px;
+	height:20px;
+	text-align:center;
+	padding:0px;
+	spacing:0px;
+}
+#btn_start {
+	cursor: url('../img/open.cur'), url('img/open.cur'), pointer;
+}
+#btn_new {
+	cursor: url('../img/open.cur'), url('img/open.cur'), pointer;
+}
+#btn_reload {
+	cursor: url('../img/open.cur'), url('img/open.cur'), pointer;
+}
+#btn_printable {
+	cursor: url('../img/open.cur'), url('img/open.cur'), pointer;
+}
+#opt_words {
+	width:300px;
+	height:300px;
+}
+.head {
+	font-size:19px;
+	font-family: impact, monospace;
+	color:#333;
+}
+.small {
+	font-size:14px;
+	width:300px;
+	vertical-align:top;
+	padding-top:10px;
+}
+#pbar {
+	width: 190px;
+	text-align: left;
+	position:relative;
+	left:32px;
+}
+#pb1 {
+	width: 190px;
+	text-align: left;
+}
+a {
+	color:#3333ff;
+}
+a:hover {
+	text-decoration:none;
+	color:#000;
+}
